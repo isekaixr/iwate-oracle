@@ -29,6 +29,9 @@
 .chap h2{margin:4px 0;color:#fff;font-size:clamp(26px,4vw,44px);font-variant:small-caps}
 .chap p{color:#d6cdb2;line-height:1.8}
 .chap img{width:100%;border-radius:10px;border:1px solid var(--gold)}
+#sndBtn{position:fixed;left:10px;top:62%;z-index:40;background:rgba(7,6,14,.6);border:1px solid rgba(212,175,55,.4);color:var(--gold2);border-radius:50%;width:34px;height:34px;font-size:15px;cursor:pointer;opacity:.55;backdrop-filter:blur(6px)}
+#sndBtn:hover{opacity:1}
+@media(max-width:1100px){#sndBtn{left:auto;right:10px;top:auto;bottom:14px}}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0}
 .stat{border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:14px;background:#0d0a14}
 .stat b{display:block;font-size:26px;color:var(--gold2)}
@@ -58,6 +61,7 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 </div>
 <div class="tategaki left">導き • 静寂 • 間</div>
 <div class="tategaki right">占い • 神社 • 鏡</div>
+<button id="sndBtn" title="Couper / remettre le son" onclick="toggleSnd()">🔊</button>
 <nav class="topnav"><b>⛩️ IWATE ORACLE</b><a href="omikuji.html" onclick="return openFrame('omikuji.html','Omikuji')">Omikuji</a><a href="question.html" onclick="return openFrame('question.html','Question')">Question</a><a href="packs.html" onclick="return openFrame('packs.html','Consultation')">Consultation</a><a href="infos.html" onclick="return openFrame('infos.html','Infos')">Infos</a></nav>
 <div class="wrap">
 <section class="hero-full">
@@ -86,7 +90,8 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 <script src="reveal.js"></script>
 <audio id="hymn" src="audio/sanctuaire.mp3" loop preload="auto"></audio>
 <script>
-function enterSanctuary(){document.getElementById('veil').classList.add('hide');var a=document.getElementById('hymn');if(a){a.volume=0.5;var p=a.play();if(p&&p.catch){p.catch(function(){/* pas encore de musique, le sanctuaire reste silencieux */});}}}
+function enterSanctuary(){document.getElementById('veil').classList.add('hide');var a=document.getElementById('hymn');if(a){a.volume=0.5;var p=a.play();if(p&&p.catch){p.catch(function(){/* pas encore de musique, le sanctuaire reste silencieux */});}var b=document.getElementById('sndBtn');if(b){b.textContent='🔊';}}}
+function toggleSnd(){var a=document.getElementById('hymn');var b=document.getElementById('sndBtn');if(!a||!b)return;if(a.paused){a.volume=0.5;var p=a.play();if(p&&p.catch){p.catch(function(){});}b.textContent='🔊';}else{a.pause();b.textContent='🔇';}}
 var _orb=document.getElementById('topOrb');if(_orb){_orb.addEventListener('click',function(){openFrame('omikuji.html','Omikuji');});}
 function openFrame(url,title){document.getElementById('frameTitle').textContent=title||'Sanctuaire';document.getElementById('framePage').src=url;document.getElementById('fModal').classList.add('on');document.body.style.overflow='hidden';return false;}
 function closeFrame(){document.getElementById('fModal').classList.remove('on');document.getElementById('framePage').src='about:blank';document.body.style.overflow='';}
