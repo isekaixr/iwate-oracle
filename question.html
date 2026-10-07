@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎁 Nova Oracle — 壱 Question</title>
+<link rel="stylesheet" href="style.css?v=3">
+<style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="tategaki left">導き • 静寂 • 間</div>
+<div class="tategaki right">占い • 神社 • 鏡</div>
+<div class="wrap">
+<div class="crest">
+<div class="torii">⛩️</div>
+<h1>Nova Oracle IA</h1>
+<div class="jp-sub">壱 — TA QUESTION</div>
+<div class="litany">« Dépose ta question comme une offrande. »</div>
+<div class="orb" style="font-size:54px;margin:0 auto">🔮</div>
+</div>
+<div class="card">
+<label>Ton prénom</label><input id="f_prenom" placeholder="ex : Lena">
+<label>Ta question précise (1 phrase)</label><textarea id="f_q" rows="2" placeholder="ex : dois-je accepter ce poste à Lyon ?"></textarea>
+<label>Ton contact (email ou WhatsApp)</label><input id="f_contact" placeholder="ex : lena@mail.com / 06...">
+<a class="btn btn-free" href="#" onclick="freeGo();return false;">✨ Envoyer ma question gratuite</a>
+<p style="font-size:12.5px;color:var(--mut)">Réponse IA sous 24h. 1 / personne pour découvrir. Divertissement, zéro miracle garanti.</p>
+</div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px">
+<a class="btn btn-ghost" href="omikuji.html">← OMIKUJI</a>
+<a class="btn btn-pay" href="packs.html">ÉTAPE SUIVANTE : LES PACKS 弐 →</a>
+</div>
+<p class="foot">© 2026 Isekai XR — divertissement uniquement.<br><img class="logo-foot" src="images/logo-isekaixr-clean.png" alt="Isekai XR Studio"></p>
+</div>
+<script>
+function freeGo(){var p=document.getElementById('f_prenom').value||'voyageur';var q=document.getElementById('f_q').value||'(à préciser)';var c=document.getElementById('f_contact').value||'';var txt='Salut Nova ! Je suis '+p+'. Ma mini-question gratuite : '+q+' Mon contact : '+c;if(c.indexOf('@')>-1){window.open('mailto:contact.isekaixr@gmail.com?subject='+encodeURIComponent('Question Oracle - '+p)+'&body='+encodeURIComponent(txt),'_blank');}else{window.open('https://wa.me/TONNUMERO?text='+encodeURIComponent(txt),'_blank');}}
+(function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[];function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);var g=['✨','🌸','✦'];for(var i=0;i<30;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*12,vy:-.2-Math.random()*.5,g:g[i%3],a:.3+Math.random()*.5});}
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⛩️ Nova Oracle — 零 Omikuji</title>
+<link rel="stylesheet" href="style.css?v=3">
+<style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="tategaki left">導き • 静寂 • 間 — GACHA</div>
+<div class="tategaki right">占い • 神社 • 鏡 — NOVA DEMEURE</div>
+<span class="petal" style="left:12%;animation-duration:9s">🌸</span>
+<span class="petal" style="left:70%;animation-duration:11s">✨</span>
+<div class="wrap">
+<div class="crest">
+<div class="torii">⛩️</div>
+<h1>Nova Oracle IA</h1>
+<div class="jp-sub">零 — TIRAGE OMIKUJI</div>
+<div class="orb" id="topOrb" title="Clique la boule">🔮</div>
+</div>
+<div class="gacha">
+<div>🎰 <b style="color:var(--gold2)">Gacha du Sanctuaire — 1 tirage gratuit / jour</b> 🎰</div>
+<p class="odds">N 50% • R 30% • SR 15% • SSR 5% • pity SR tous les 10 • fun gratuit, sans argent</p>
+<div class="pull-result" id="pullResult">Appuie sur « Tirer »... 🌸</div>
+<button class="gacha-btn" id="pullBtn" onclick="pull()">⛩️ Tirer mon Omikuji</button>
+<div class="collection" id="collection">Collection : vide 🌙</div>
+<p class="odds" id="pityInfo"></p>
+<p class="odds"><a href="#" onclick="localStorage.removeItem('nova_col_v2');localStorage.removeItem('nova_pity_v2');localStorage.removeItem('nova_last_v2');location.reload();return false;" style="color:var(--mut)">↺ réinitialiser ma collection</a></p>
+</div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px">
+<a class="btn btn-ghost" href="index.html" target="_top">← Accueil</a>
+<a class="btn btn-pay" href="question.html">Étape suivante : ma question 壱 →</a>
+</div>
+<p class="foot">© 2026 Isekai XR — divertissement uniquement.<br><img class="logo-foot" src="images/logo-isekaixr-clean.png" alt="Isekai XR Studio"></p>
+</div>
+<script>
+var pool=[
+{t:"🌙 Brume légère — prends une nuit avant de décider.",r:"N"},
+{t:"🕯️ Braise stable — continue ce que tu fais.",r:"N"},
+{t:"🌸 Pétale hésitant — demande un avis extérieur.",r:"N"},
+{t:"⛩️ Seuil — ne force pas la porte fermée.",r:"N"},
+{t:"💧 Goutte claire — écris ta peur, elle rétrécit.",r:"N"},
+{t:"🔮 Reflet bleu — option B mieux que A cette semaine.",r:"R"},
+{t:"🦊 Renard rusé — vérifie les petites lignes.",r:"R"},
+{t:"🪞 Miroir double — ton intuition avait raison.",r:"R"},
+{t:"🌅 Torii doré — feu vert prudent.",r:"SR"},
+{t:"🐉 Dragon voilé — ose demander, ça avance.",r:"SR"},
+{t:"☩ Nova en personne — semaine charnière.",r:"SSR"},
+{t:"🌌 Miroir étoilé SSR — ce que tu protèges va fleurir.",r:"SSR"}];
+function roll(){var x=Math.random()*100;if(x<5)return "SSR";if(x<20)return "SR";if(x<50)return "R";return "N";}
+function pull(){
+var orb=document.getElementById('topOrb');
+if(orb){orb.classList.remove('shake');void orb.offsetWidth;orb.classList.add('shake');setTimeout(function(){orb.classList.remove('shake')},700);}
+var btn=document.getElementById('pullBtn');btn.disabled=true;setTimeout(function(){btn.disabled=false},20000);
+var now=new Date().toDateString();var pity=parseInt(localStorage.getItem('nova_pity_v2')||'0');
+if(localStorage.getItem('nova_last_v2')!==now){pity=0;}
+var r=roll();pity++;if(pity>=10&&(r==="N"||r==="R")){r="SR";}
+if(r==="SR"||r==="SSR"){pity=0;}
+var cands=pool.filter(function(o){return o.r===r;});var pick=cands[Math.floor(Math.random()*cands.length)];
+document.getElementById('pullResult').innerHTML='<span class="rar-'+r+'">['+r+'] '+pick.t+'</span><br><span style="font-size:13px;color:var(--mut)">Divertissement, pas un ordre du destin.</span>';
+localStorage.setItem('nova_last_v2',now);localStorage.setItem('nova_pity_v2',pity);
+var col=JSON.parse(localStorage.getItem('nova_col_v2')||'[]');
+if(col.indexOf(pick.t)<0){col.push(pick.t);localStorage.setItem('nova_col_v2',JSON.stringify(col));}
+document.getElementById('collection').textContent='Collection : '+col.length+'/12 • pity '+pity+'/10';
+document.getElementById('pityInfo').textContent=pity>=8?'Pity proche ✨':'';
+}
+(function(){var col=JSON.parse(localStorage.getItem('nova_col_v2')||'[]');if(col.length>0){document.getElementById('collection').textContent='Collection : '+col.length+'/12 — '+col.slice(-3).join(' • ');}})();
+document.getElementById('topOrb').addEventListener('click',function(){pull();});
+(function(){var c=document.getElementById('fx'),x=c.getContext('2d'),P=[],mx=-999,my=-999;
+function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);
+addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+var g=['✨','🌸','✦'];for(var i=0;i<35;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*14,vx:(Math.random()-.5)*.4,vy:-.2-Math.random()*.5,g:g[i%g.length],a:.3+Math.random()*.6});}
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<110&&d>1){p.x+=dx/d*1.2;p.y+=dy/d*1.2;}p.x+=p.vx;p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;p.x=Math.random()*innerWidth;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>
+

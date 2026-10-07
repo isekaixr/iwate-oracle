@@ -1,0 +1,95 @@
+
+:root{--bg:#07060e;--vio:#7b2ff7;--gold:#d4af37;--gold2:#ffd66e;--parch:#e8dcc0;--mut:#9a8f75;--pink:#ff7ad9;--cyan:#4de3ff}
+*{box-sizing:border-box}body{margin:0;font-family:"Hiragino Mincho ProN","Noto Serif JP",Georgia,serif;background:radial-gradient(1000px 500px at 50% -10%,#2b1650 0%,transparent 60%),radial-gradient(800px 400px at 90% 20%,#3a0a3a 0%,transparent 55%),var(--bg);color:var(--parch);min-height:100vh;overflow-x:hidden}
+.tategaki{position:fixed;top:35%;writing-mode:vertical-rl;font-size:13px;letter-spacing:.5em;color:rgba(212,175,55,.5);z-index:5;user-select:none}
+.tategaki.left{left:10px}.tategaki.right{right:10px}
+@media(max-width:1100px){.tategaki{display:none}}
+.petal{position:fixed;top:-30px;font-size:18px;opacity:.8;animation:fall linear infinite;pointer-events:none;z-index:6}
+@keyframes fall{to{transform:translateY(110vh) rotate(320deg)}}
+.wrap{max-width:920px;margin:0 auto;padding:64px 22px 60px;text-align:center}
+.crest{border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:4px;background:linear-gradient(180deg,#1a1428,#07060e);padding:28px 20px;border-radius:12px;position:relative;overflow:hidden}
+.crest::after{content:"✨ 🌸 🔮 🌸 ✨";position:absolute;top:8px;left:0;right:0;opacity:.7;animation:twinkle 2.8s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.3}50%{opacity:.9}}
+.crest h1{margin:8px 0 4px;font-size:38px;background:linear-gradient(90deg,#8a6a1a,var(--gold2),#fff6c8,var(--gold2),#8a6a1a);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite;font-variant:small-caps}
+@keyframes shine{to{background-position:200% center}}
+.jp-sub{font-size:15px;letter-spacing:.6em;color:var(--gold2);margin:6px 0}
+.crystal{font-size:56px;filter:drop-shadow(0 0 18px #7b2ff7);animation:float 3.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero{width:100%;max-width:520px;border:2px solid var(--gold);border-radius:12px;box-shadow:0 0 40px rgba(123,47,247,.6),0 0 90px rgba(212,175,55,.3);margin:18px auto 16px;display:block}
+.litany{font-style:italic;color:var(--gold2);margin:14px 0;line-height:2;font-size:15px}
+.runes{letter-spacing:.4em;color:var(--vio);opacity:.8;margin:10px 0}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.badge{border:1px solid var(--gold);padding:5px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold2);border-radius:20px;background:rgba(212,175,55,.12)}
+h2.sec{color:var(--gold2);font-variant:small-caps;letter-spacing:.08em;margin:34px 0 6px;line-height:1.6}
+h2.sec .kanji{display:block;font-size:13px;letter-spacing:.5em;color:var(--vio);margin-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0;text-align:left}
+.card{background:linear-gradient(180deg,#221a3a,#0d0a14);border:1px solid var(--vio);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,214,110,.16) 50%,transparent 70%);animation:cardshine 3.8s ease-in-out infinite;pointer-events:none}
+@keyframes cardshine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.card h3{margin:6px 0;color:var(--gold2)}
+.card p{font-size:14px;line-height:1.7;color:#d6cdb2}
+.price{font-size:28px;color:var(--gold2);font-weight:800;text-shadow:0 0 14px rgba(255,214,110,.6)}
+.btn{display:inline-block;margin:8px 6px;padding:13px 26px;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;font-size:14px}
+.btn-pay{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#0a0908;border:1px solid #000;box-shadow:0 0 18px rgba(212,175,55,.6)}
+.btn-ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);font-size:12px;padding:8px 14px;box-shadow:none}
+.btn-wa{background:transparent;color:#9ddeb0;border:1px solid #3ddc84}
+.btn-free{background:transparent;color:var(--gold2);border:1px dashed var(--gold)}
+.btn:disabled{opacity:.4}
+/* GACHA */
+.gacha{background:linear-gradient(180deg,#1c0f2e,#0a0714);border:2px solid var(--gold);border-radius:14px;padding:22px;margin:22px 0;position:relative;overflow:hidden}
+.gacha .odds{font-size:12px;color:var(--mut)}
+.pull-result{font-size:20px;min-height:88px;margin:14px 0;line-height:1.7;border:1px dashed rgba(212,175,55,.5);border-radius:10px;padding:14px;background:rgba(0,0,0,.35)}
+.rar-N{color:#d6cdb2}.rar-R{color:var(--cyan)}.rar-SR{color:var(--pink)}.rar-SSR{color:var(--gold2);text-shadow:0 0 16px rgba(255,214,110,.8);font-weight:800}
+.collection{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px;font-size:12px;color:var(--mut)}
+.spirit{background:rgba(123,47,247,.08);border:1px solid rgba(123,47,247,.4);border-radius:10px;padding:18px;margin:22px 0;line-height:2;font-size:14.5px}
+.faq{text-align:left;background:#100d09;border:1px solid var(--gold);border-radius:10px;padding:18px;margin:22px 0}
+.faq details{margin:10px 0;border-bottom:1px solid rgba(212,175,55,.2);padding-bottom:8px}
+.faq summary{cursor:pointer;color:var(--gold2);font-weight:700}
+.faq p{color:#d6cdb2;font-size:14px;line-height:1.7}
+.temoi{border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:18px;margin:22px 0;background:rgba(212,175,55,.05)}
+.disclaimer{margin-top:26px;border:1px dashed var(--gold);padding:14px 18px;font-size:13px;color:var(--mut);line-height:1.7;background:#100d09;text-align:left}
+.legal{margin-top:14px;font-size:12px;color:var(--mut);line-height:1.7}
+.hanko{display:inline-block;background:#b91c1c;color:#fff;font-weight:800;padding:6px 10px;border-radius:4px;box-shadow:0 0 0 2px #fff inset,0 0 0 3px #b91c1c;font-size:14px;letter-spacing:.15em;margin-top:10px}
+.logo-foot{height:84px;width:auto;margin-top:12px;filter:drop-shadow(0 0 18px rgba(212,175,55,.45));}
+.foot{margin-top:18px;color:var(--mut);font-size:13px;font-style:italic}
+.foot b{color:var(--gold2)}
+input,textarea{width:100%;background:#0a0714;border:1px solid var(--gold);border-radius:6px;color:var(--parch);padding:10px;margin:6px 0;font-family:inherit}
+label{font-size:13px;color:var(--gold2);text-align:left;display:block;margin-top:8px}
+/* — CodePen x3 fusionné (crédit pens d'inspi) — */
+.orb{font-size:90px;text-align:center;filter:drop-shadow(0 0 25px #7b2ff7);cursor:pointer;animation:orb-float 3s ease-in-out infinite;user-select:none}
+.orb.shake{animation:orb-shake .6s}
+@keyframes orb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes orb-shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-15deg) scale(1.1)}50%{transform:rotate(15deg) scale(1.2)}75%{transform:rotate(-8deg)}}
+.gacha-btn{display:inline-block;padding:15px 35px;font-weight:900;color:#0a0908 !important;text-decoration:none;border-radius:10px;background:linear-gradient(90deg,#8a6a1a,#ffd66e,#fff6c8,#ffd66e,#8a6a1a);background-size:200% auto;animation:gacha-shine 3s linear infinite;box-shadow:0 0 25px rgba(212,175,55,.7);text-transform:uppercase;letter-spacing:.06em}
+@keyframes gacha-shine{to{background-position:200% center}}
+.gacha-btn:hover{transform:scale(1.05)}
+.gacha-btn:disabled{opacity:.4}
+.torii{font-size:44px;text-align:center;filter:drop-shadow(0 0 14px #ff2d2d) drop-shadow(0 0 30px #d4af37);animation:torii-portal 2.5s ease-in-out infinite;margin:2px 0 0}
+@keyframes torii-portal{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+/* — workflow vertical : chaque module = nouvel écran fondu — */
+.hub{display:flex;flex-direction:column;gap:10px;margin:22px auto;max-width:420px}
+.hub button{background:linear-gradient(180deg,#221a3a,#0d0a14);border:1px solid var(--gold);color:var(--parch);border-radius:12px;padding:14px;font-size:16px;font-weight:800;cursor:pointer;letter-spacing:.04em}
+.hub button small{display:block;font-weight:400;font-size:12.5px;color:var(--mut);margin-top:4px}
+.hub button:hover{box-shadow:0 0 22px rgba(212,175,55,.4);transform:translateY(-1px)}
+.mod.open{position:fixed;inset:0;z-index:40;background:radial-gradient(900px 400px at 50% -5%,#2b1650,transparent),#07060e;overflow-y:auto;padding:24px 18px 70px;animation:screen-in .45s ease}
+@keyframes screen-in{from{opacity:0;transform:translateY(26px) scale(.99)}to{opacity:1;transform:none}}
+.mod .back{display:none}
+.mod.open .back{display:inline-block;margin-bottom:12px;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:8px 18px;cursor:pointer;font-weight:800}
+.stage{position:relative;max-width:520px;margin:16px auto 4px}
+.stage .hero{margin:0}
+.orb{position:relative;z-index:2;width:104px;height:104px;margin:-52px auto 0;display:flex;align-items:center;justify-content:center;font-size:72px;background:radial-gradient(circle,rgba(123,47,247,.4) 0%,rgba(123,47,247,.12) 45%,transparent 70%);border-radius:50%;cursor:pointer;animation:orb-float 3s ease-in-out infinite;user-select:none}
+/* — néo-Flash : voile d'entrée + canvas lucioles — */
+#fx{position:fixed;inset:0;z-index:4;pointer-events:none}
+#veil{position:fixed;inset:0;z-index:50;background:radial-gradient(800px 400px at 50% 30%,#2b1650,transparent),#050409;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer;transition:opacity .8s}
+#veil.hide{opacity:0;pointer-events:none}
+#veil .big{font-size:90px;filter:drop-shadow(0 0 30px #d4af37);animation:torii-portal 2s ease-in-out infinite}
+#veil .enter{font-size:15px;letter-spacing:.4em;color:var(--gold2)}
+
+
+/* reveals on scroll (sublime) */
+.rv{opacity:0;transform:translateY(28px) scale(.99);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.crest,.gacha,.card,.faq,.temoi,.spirit{margin-bottom:22px}
+.crest:last-child,.gacha:last-child,.card:last-child{margin-bottom:0}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
+
