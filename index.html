@@ -58,24 +58,21 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 </div>
 <div class="tategaki left">導き • 静寂 • 間</div>
 <div class="tategaki right">占い • 神社 • 鏡</div>
-<nav class="topnav"><b>⛩️ NOVA ORACLE</b><a href="omikuji.html" onclick="return openFrame('omikuji.html','Omikuji')">Omikuji</a><a href="question.html" onclick="return openFrame('question.html','Question')">Question</a><a href="packs.html" onclick="return openFrame('packs.html','Packs')">Packs</a><a href="infos.html" onclick="return openFrame('infos.html','Infos')">Infos</a></nav>
+<nav class="topnav"><b>⛩️ NOVA ORACLE</b><a href="omikuji.html" onclick="return openFrame('omikuji.html','Omikuji')">Omikuji</a><a href="question.html" onclick="return openFrame('question.html','Question')">Question</a><a href="packs.html" onclick="return openFrame('packs.html','Consultation')">Consultation</a><a href="infos.html" onclick="return openFrame('infos.html','Infos')">Infos</a></nav>
 <div class="wrap">
 <section class="hero-full">
 <img class="bg" src="images/hero-oracle.jpg" alt="Miko du sanctuaire">
 <div class="shade"></div>
 <div class="inner">
-<div class="kicker">AVATAR 100% IA — DIVERTISSEMENT • ZÉRO MIRACLE</div>
 <h1>NOVA<br><span>ORACLE IA</span></h1>
-<p>Sanctuaire shinto-gothique : omikuji quotidien, guidance honnête, visions générées. France entière, WhatsApp + Email, réponse sous 24h.</p>
+<p>Sanctuaire shinto-gothique : omikuji quotidien, guidance honnête, visions générées. Email uniquement, réponse sous 24h.</p>
 <div class="cta-row">
 <a class="gacha-btn" href="omikuji.html" onclick="return openFrame('omikuji.html','Omikuji')">⛩️ Tirer mon Omikuji</a>
-<a class="btn btn-pay" href="packs.html" onclick="return openFrame('packs.html','Packs')">Voir les packs 5€ →</a>
+<a class="btn btn-pay" href="packs.html" onclick="return openFrame('packs.html','Consultation')">Prendre rdv !</a>
 </div>
-<div class="scrolldown">SCROLL DOWN ↓</div>
 </div>
 </section>
-<div class="marquee"><span>OMIKUJI QUOTIDIEN ✦ 100% IA DÉCLARÉE ✦ ZÉRO MIRACLE GARANTI ✦ RÉPONSE 24H ✦ OMIKUJI QUOTIDIEN ✦ 100% IA DÉCLARÉE ✦ ZÉRO MIRACLE GARANTI ✦ RÉPONSE 24H ✦&nbsp;</span></div>
-<div class="orb" id="topOrb" title="Vers l'omikuji" style="margin:2px auto">🔮</div>
+<div class="marquee"><span>OMIKUJI QUOTIDIEN ✦ 100% IA DÉCLARÉE ✦ CONTENU GÉNÉRÉ PAR IA ✦ RÉPONSE 24H ✦ OMIKUJI QUOTIDIEN ✦ 100% IA DÉCLARÉE ✦ CONTENU GÉNÉRÉ PAR IA ✦ RÉPONSE 24H ✦&nbsp;</span></div>
 <div id="fModal" onclick="if(event.target===this)closeFrame()">
 <div class="frame-box">
 <div class="frame-head"><span>⛩️</span><b id="frameTitle">Sanctuaire</b><button onclick="closeFrame()">✕ fermer</button></div>
@@ -87,7 +84,7 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 </div>
 <script src="reveal.js"></script>
 <script>
-document.getElementById('topOrb').addEventListener('click',function(){openFrame('omikuji.html','Omikuji');});
+var _orb=document.getElementById('topOrb');if(_orb){_orb.addEventListener('click',function(){openFrame('omikuji.html','Omikuji');});}
 function openFrame(url,title){document.getElementById('frameTitle').textContent=title||'Sanctuaire';document.getElementById('framePage').src=url;document.getElementById('fModal').classList.add('on');document.body.style.overflow='hidden';return false;}
 function closeFrame(){document.getElementById('fModal').classList.remove('on');document.getElementById('framePage').src='about:blank';document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeFrame();});
