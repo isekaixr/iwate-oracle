@@ -31,7 +31,7 @@ h2.sec .kanji{display:block;font-size:13px;letter-spacing:.5em;color:var(--vio);
 .price{font-size:28px;color:var(--gold2);font-weight:800;text-shadow:0 0 14px rgba(255,214,110,.6)}
 .btn{display:inline-flex;align-items:center;justify-content:center;margin:8px 6px;padding:13px 26px;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;font-size:14px;text-align:center;line-height:1.4}
 .btn-pay{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#0a0908;border:1px solid #000;box-shadow:0 0 18px rgba(212,175,55,.6)}
-.btn-ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);font-size:12px;padding:8px 14px;box-shadow:none}
+.btn-ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);font-size:14px;padding:13px 26px;box-shadow:none}
 .btn-wa{background:transparent;color:#9ddeb0;border:1px solid #3ddc84}
 .btn-free{background:transparent;color:var(--gold2);border:1px dashed var(--gold)}
 .btn:disabled{opacity:.4}
