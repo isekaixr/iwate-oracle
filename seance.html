@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔮 Iwate Oracle — 陸 Séance</title>
+<link rel="stylesheet" href="style.css?v=7">
+<style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="tategaki left">導き • 静寂 • 間</div>
+<div class="tategaki right">占い • 神社 • 鏡</div>
+<div class="wrap">
+<div class="crest">
+<div class="torii">⛩️</div>
+<h1>Iwate Oracle IA</h1>
+<div class="jp-sub">陸 — CONTENU DE LA SÉANCE</div>
+<div class="badges"><span class="badge">🤖 100% IA</span><span class="badge">🎭 divertissement</span><span class="badge">✨ contenu généré par IA</span></div>
+<div class="orb" style="font-size:54px;margin:18px auto 0">🔮</div>
+</div>
+<div class="spirit">🕯️ <b style="color:var(--gold2)">En cours de construction</b> 🕯️<br>Durée, déroulé minute par minute, prix : on écrit ça ensemble, doucement.<br><br>En attendant, les deux portes restent ouvertes :<br><br><a class="btn btn-ghost" href="omikuji.html">⛩️ Gacha gratuit</a> <a class="btn btn-ghost" href="question.html">✉️ Question mail gratuite</a></div>
+<div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px">
+<a class="btn btn-ghost" href="packs.html">← CONSULTATION</a>
+<a class="btn btn-pay" href="infos.html">INFOS →</a>
+</div>
+</div>
+<script>
+(function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[];function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);var g=['✨','🌸','✦'];for(var i=0;i<30;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*12,vy:-.2-Math.random()*.5,g:g[i%3],a:.3+Math.random()*.5});}
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>
