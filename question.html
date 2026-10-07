@@ -23,8 +23,10 @@
 <label>Ton prénom</label><input id="f_prenom" placeholder="ex : Lena">
 <label>Ta question précise (1 phrase)</label><textarea id="f_q" rows="2" placeholder="ex : dois-je accepter ce poste à Lyon ?"></textarea>
 <label>Ton email</label><input id="f_contact" placeholder="ex : lena@mail.com">
-<a class="btn btn-free" href="#" onclick="freeGo();return false;">✨ Envoyer ma question gratuite</a>
-<p style="font-size:12.5px;color:var(--mut)">Réponse IA sous 24h. 1 / personne pour découvrir. Contenu généré par IA — Divertissement.</p>
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--parch);cursor:pointer"><input type="checkbox" id="f_cgv" style="width:auto;margin-top:4px" onchange="gateGo()"> <span>Je valide : 18+, divertissement, règles du sanctuaire (<a href="infos.html" style="color:var(--gold2)">voir Infos</a>).</span></label>
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--parch);cursor:pointer"><input type="checkbox" id="f_stats" style="width:auto;margin-top:4px"> <span>J'aide les devs : stats 100% anonymes (nombres uniquement, jamais de noms).</span></label>
+<a class="btn btn-free" id="freeBtn" style="display:none" href="#" onclick="freeGo();return false;">✨ Envoyer ma question gratuite</a>
+<p style="font-size:12.5px;color:var(--mut)">1 gratuite / personne pour découvrir. Contenu généré par IA — Divertissement.</p>
 </div>
 <div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px">
 <a class="btn btn-ghost" href="omikuji.html">← OMIKUJI</a>
@@ -33,7 +35,8 @@
 <p class="foot">Scellé par <b>Nova</b> ☩ — le support change, <b>Nova demeure</b>.<br><img class="logo-foot" src="images/logo-isekaixreality.png" alt="IsekaiXReality"><br>© 2026 Isekai XR — Tous droits réservés. Divertissement uniquement.</p>
 </div>
 <script>
-function freeGo(){var p=document.getElementById('f_prenom').value||'voyageur';var q=document.getElementById('f_q').value||'(à préciser)';var c=document.getElementById('f_contact').value||'';var txt='Salut Nova ! Je suis '+p+'. Ma mini-question gratuite : '+q+' Mon contact : '+c;window.open('mailto:contact.isekaixr@gmail.com?subject='+encodeURIComponent('Question Oracle - '+p)+'&body='+encodeURIComponent(txt),'_blank');}
+function gateGo(){document.getElementById('freeBtn').style.display=document.getElementById('f_cgv').checked?'inline-flex':'none';}
+function freeGo(){var p=document.getElementById('f_prenom').value||'voyageur';var q=document.getElementById('f_q').value||'(à préciser)';var c=document.getElementById('f_contact').value||'';var s=document.getElementById('f_stats').checked?'oui':'non';var txt='Salut Nova ! Je suis '+p+'. Ma mini-question gratuite : '+q+' Mon contact : '+c+' Validation 18+/regles : oui. Consentement stats anonymes : '+s;window.open('mailto:contact.isekaixr@gmail.com?subject='+encodeURIComponent('Question Oracle - '+p)+'&body='+encodeURIComponent(txt),'_blank');}
 (function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[];function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);var g=['✨','🌸','✦'];for(var i=0;i<30;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*12,vy:-.2-Math.random()*.5,g:g[i%3],a:.3+Math.random()*.5});}
 (function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
 </script>
