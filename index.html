@@ -4,52 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Iwate Oracle IA — Sanctuaire ⛩️</title>
-<link rel="stylesheet" href="style.css?v=7">
-<style>
-.topnav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;gap:14px;padding:12px 18px;background:rgba(7,6,14,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.3)}
-.topnav b{color:var(--gold2);letter-spacing:.12em}
-.topnav a{color:var(--parch);text-decoration:none;font-size:13px;font-weight:700}
-.topnav a:hover{color:var(--gold2)}
-.hero-full{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border:1px solid var(--gold);border-radius:14px;margin-top:56px;background:#000}
-.hero-full img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.hero-full .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(7,6,14,.88) 78%,#07060e)}
-.hero-full .inner{position:relative;padding:34px 26px 26px;text-align:left}
-.kicker{font-size:12px;letter-spacing:.35em;color:var(--gold2)}
-.hero-full h1{font-size:clamp(44px,9vw,110px);margin:6px 0;line-height:.95;color:#fff;font-variant:small-caps}
-.hero-full h1 span{color:var(--gold2)}
-.hero-full p{max-width:560px;color:#d6cdb2;line-height:1.7}
-.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.scrolldown{margin-top:18px;font-size:12px;letter-spacing:.3em;color:var(--mut)}
-.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid rgba(212,175,55,.35);border-bottom:1px solid rgba(212,175,55,.35);margin:22px 0;padding:10px 0;color:var(--gold2);letter-spacing:.25em;font-size:13px}
-.marquee span{display:inline-block;padding-right:40px;animation:mq 18s linear infinite}
-@keyframes mq{to{transform:translateX(-50%)}}
-.chap{border:1px solid rgba(212,175,55,.35);border-radius:14px;padding:22px;margin:18px 0;display:grid;grid-template-columns:1fr;gap:14px;background:linear-gradient(180deg,#141020,#0a0714)}
-@media(min-width:760px){.chap{grid-template-columns:1fr 1fr;align-items:center}}
-.chap .num{font-size:13px;letter-spacing:.35em;color:var(--vio)}
-.chap h2{margin:4px 0;color:#fff;font-size:clamp(26px,4vw,44px);font-variant:small-caps}
-.chap p{color:#d6cdb2;line-height:1.8}
-.chap img{width:100%;border-radius:10px;border:1px solid var(--gold)}
-#sndBtn{position:fixed;left:10px;top:62%;z-index:40;background:rgba(7,6,14,.6);border:1px solid rgba(212,175,55,.4);color:var(--gold2);border-radius:50%;width:34px;height:34px;font-size:15px;cursor:pointer;opacity:.55;backdrop-filter:blur(6px)}
-#sndBtn:hover{opacity:1}
-@media(max-width:1100px){#sndBtn{left:auto;right:10px;top:auto;bottom:14px}}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0}
-.stat{border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:14px;background:#0d0a14}
-.stat b{display:block;font-size:26px;color:var(--gold2)}
-.stat span{font-size:12px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
-.stack{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0}
-/* — cadre modal sanctuaire (pas un popup, un cadre) — */
-#fModal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,3,10,.78);backdrop-filter:blur(6px)}
-#fModal.on{display:flex}
-.frame-box{width:min(880px,100%);height:min(88vh,860px);display:flex;flex-direction:column;background:linear-gradient(180deg,#171130,#0a0714);border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:5px;border-radius:14px;overflow:hidden;animation:frame-in .35s ease;box-shadow:0 0 60px rgba(123,47,247,.45),0 0 100px rgba(212,175,55,.2);padding:12px;gap:12px}
-@keyframes frame-in{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
-.frame-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(212,175,55,.4);border-radius:10px;background:rgba(0,0,0,.35)}
-.frame-head b{color:var(--gold2);letter-spacing:.15em;font-size:14px}
-.frame-head button{margin-left:auto;background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:6px 16px;cursor:pointer;font-weight:800}
-.frame-box iframe{flex:1;width:100%;border:1px solid rgba(212,175,55,.35);border-radius:10px;background:#07060e}
-/* — snap scroll : chaque case tombe en pleine page — */
-html{scroll-snap-type:y proximity;scroll-behavior:smooth}
-.hero-full,.marquee,.chap,.stats{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:60px}
-</style>
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 <canvas id="fx"></canvas>
@@ -89,16 +44,6 @@ html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 </div>
 <script src="reveal.js"></script>
 <audio id="hymn" src="audio/sanctuaire.mp3" loop preload="auto"></audio>
-<script>
-function enterSanctuary(){document.getElementById('veil').classList.add('hide');var a=document.getElementById('hymn');if(a){a.volume=0.5;var p=a.play();if(p&&p.catch){p.catch(function(){/* pas encore de musique, le sanctuaire reste silencieux */});}var b=document.getElementById('sndBtn');if(b){b.textContent='🔊';}}}
-function toggleSnd(){var a=document.getElementById('hymn');var b=document.getElementById('sndBtn');if(!a||!b)return;if(a.paused){a.volume=0.5;var p=a.play();if(p&&p.catch){p.catch(function(){});}b.textContent='🔊';}else{a.pause();b.textContent='🔇';}}
-var _orb=document.getElementById('topOrb');if(_orb){_orb.addEventListener('click',function(){openFrame('omikuji.html','Omikuji');});}
-function openFrame(url,title){document.getElementById('frameTitle').textContent=title||'Sanctuaire';document.getElementById('framePage').src=url;document.getElementById('fModal').classList.add('on');document.body.style.overflow='hidden';return false;}
-function closeFrame(){document.getElementById('fModal').classList.remove('on');document.getElementById('framePage').src='about:blank';document.body.style.overflow='';}
-document.getElementById('framePage').addEventListener('load',function(){try{var d=this.contentDocument||this.contentWindow.document;var t=(d.title||'').split('—');var tail=t[t.length-1].trim().split(' ');var name=tail[tail.length-1];if(name){document.getElementById('frameTitle').textContent=name;}}catch(e){/* autre origine, on garde l'ancien titre */}});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeFrame();});
-(function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[],mx=-999,my=-999;function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});var g=['✨','🌸','✦','🕯️'];for(var i=0;i<45;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*14,vx:(Math.random()-.5)*.4,vy:-.2-Math.random()*.5,g:g[i%4],a:.3+Math.random()*.6});}
-(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<110&&d>1){p.x+=dx/d*1.2;p.y+=dy/d*1.2;}p.x+=p.vx;p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;p.x=Math.random()*innerWidth;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
-</script>
+<script src="sanctuaire.js"></script>
 </body>
 </html>
