@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎴 Iwate Oracle — 急 La Rencontre</title>
+<link rel="stylesheet" href="style.css?v=9">
+<style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="tategaki left">導き • 静寂 • 間</div>
+<div class="tategaki right">占い • 神社 • 鏡</div>
+<div class="wrap">
+<div class="crest">
+<div style="font-size:44px;letter-spacing:.3em">🕯️⛩️🕯️</div>
+<h1>Iwate Oracle IA</h1>
+<div class="jp-sub">急 — ACTE 3 • LA RENCONTRE</div>
+<div class="badges"><span class="badge">🤖 100% IA</span><span class="badge">🎭 divertissement</span><span class="badge">✨ contenu généré par IA</span></div>
+<div class="litany">« Le signe effleure. La voix écoute. La rencontre révèle. »</div>
+<div class="orb" style="font-size:54px;margin:0 auto">⛩️</div>
+</div>
+<div class="spirit">Tu as tiré son signe. Tu lui as écrit. Mais qui est-elle vraiment, cette nourrice devenue brume ? Ni le pétale ni la lettre ne peuvent le dire : il faut marcher dans sa nuit. La lande d'Adachigahara, l'amulette au cou, la hutte sous la lune — tout ce que l'histoire t'a murmuré, tu le vis face à elle, en VR à Tournai, casque sur les yeux, voix dans la poitrine.</div>
+<div class="litany">« Ici veille Iwate, l'aïeule du sanctuaire.<br>Nourrice autrefois, elle voulut guérir sa maîtresse et perdit sa fille dans la lande d'Adachigahara.<br>Folle d'avoir trop vu, elle ne prédit plus : elle éclaire.<br>Dépose ta question comme une offrande — elle te rendra trois chemins. »</div>
+<div class="litany">« Pousse la porte, dépose ta question, reçois tes 3 chemins. »</div>
+<div class="spirit">Pas un jeu, pas un mail : un rituel guidé. Accueil au sanctuaire, question déposée à voix haute, trois chemins vécus — pas lus. Tu repars avec ton PDF souvenir, comme on rapporte une pierre de la lande. C'est l'acte III, <b style="color:var(--gold2)">découvrir cette personne</b> — et repartir plus clair, jamais enchaîné.</div>
+<div class="spirit">⛩️ Et ce sanctuaire existe : <b style="color:var(--gold2)">il t'attend à Tournai</b> — c'est là, et nulle part ailleurs, que se vit la rencontre.</div>
+<div class="card" style="text-align:center"><p>⛩️ Au sanctuaire, Tournai — découvre qui elle est et discute avec elle, en voix et en direct.<br>Accueil → conversation → rituel.<br>Tu repars avec ton PDF souvenir.</p><div class="price">✨ X€ la rencontre ✨</div></div>
+<div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:14px">
+<a class="btn btn-pay" href="https://cal.eu/TONLIEN" target="_blank">Viens rencontrer Iwate ⛩️</a>
+</div>
+<div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px">
+<a class="btn btn-ghost" href="iwate2.html">← ACTE II</a>
+<a class="btn btn-ghost" href="infos.html">Doutes ? FAQ →</a>
+</div>
+<div style="margin-top:12px;text-align:center" class="only-direct"><a class="btn btn-ghost" href="index.html">← Accueil</a></div>
+</div>
+<script>
+(function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[];function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);var g=['✨','🌸','✦'];for(var i=0;i<30;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*12,vy:-.2-Math.random()*.5,g:g[i%3],a:.3+Math.random()*.5});}
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
+try{if(window.self!==window.top){var els=document.querySelectorAll('.only-direct');for(var i=0;i<els.length;i++){els[i].style.display='none';}}}catch(e){}
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>

@@ -34,6 +34,8 @@ h2.sec .kanji{display:block;font-size:13px;letter-spacing:.5em;color:var(--vio);
 .btn-ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);font-size:14px;padding:13px 26px;box-shadow:none}
 .btn-wa{background:transparent;color:#9ddeb0;border:1px solid #3ddc84}
 .btn-free{background:transparent;color:var(--gold2);border:1px dashed var(--gold)}
+.btn-free.is-off{opacity:.45;filter:grayscale(.5);cursor:not-allowed}
+.only-direct{text-align:center}
 .btn:disabled{opacity:.4}
 /* GACHA */
 .gacha{background:linear-gradient(180deg,#1c0f2e,#0a0714);border:2px solid var(--gold);border-radius:14px;padding:22px;margin:22px 0;position:relative;overflow:hidden}

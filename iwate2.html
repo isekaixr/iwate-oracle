@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>🎁 Iwate Oracle — 壱 Question</title>
+<title>🎴 Iwate Oracle — 破 La Voix</title>
 <link rel="stylesheet" href="style.css?v=9">
 <style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
 </head>
@@ -15,10 +15,14 @@
 <div class="crest">
 <div class="torii">⛩️</div>
 <h1>Iwate Oracle IA</h1>
-<div class="jp-sub">壱 — TA QUESTION</div>
-<div class="litany">« Dépose ta question comme une offrande. »</div>
-<div class="orb" style="font-size:54px;margin:0 auto">🔮</div>
+<div class="jp-sub">破 — ACTE 2 • LA VOIX</div>
+<div class="badges"><span class="badge">🤖 100% IA</span><span class="badge">🎭 divertissement</span><span class="badge">✨ contenu généré par IA</span></div>
+<div class="litany">« La brume effleure. La lettre, elle, écoute. »</div>
+<div class="orb" style="font-size:54px;margin:0 auto">🕯️</div>
 </div>
+<div class="spirit">Des siècles à hanter la lande, Iwate vit passer des voyageurs qui ne voulaient plus d'un simple signe. Ils s'agenouillaient et glissaient sous la pierre des lettres pliées : <i>dois-je partir ? dois-je rester ?</i> Elle comprit que la brume ne suffit pas quand le cœur porte une vraie question.</div>
+<div class="spirit">Alors elle apprit à lire autrement. Une question, déposée comme une offrande — une seule phrase, un prénom, un lieu où répondre — et elle rend <b style="color:var(--gold2)">trois chemins, jamais un ordre</b>. Pas de miracle, pas de retour garanti : de la clarté, des probas, un petit rituel à faire chez soi. C'est le second pas du sanctuaire : gratuit une fois, pour entendre sa voix.</div>
+<div class="spirit">Et le troisième pas ? Il ne s'écrit pas. <b style="color:var(--gold2)">Elle se rencontre.</b> Mais avant la nuit VR, il faut une voix : écris-lui ici même — ou continue ta lecture, le sanctuaire ne force jamais.</div>
 <div class="card">
 <label>Ton prénom</label><input id="f_prenom" placeholder="ex : Lena" autocomplete="given-name">
 <label>Ta question précise (1 phrase)</label><textarea id="f_q" rows="2" placeholder="ex : dois-je accepter ce poste à Lyon ?"></textarea>
@@ -28,7 +32,7 @@
 <p id="gateHint" style="font-size:12.5px;color:var(--gold2)">☝️ Coche la case 18+ pour débloquer l'envoi.</p>
 <p id="formErr" style="display:none;font-size:13px;color:#ff9a9a"></p>
 <a class="btn btn-free" id="freeBtn" href="#" onclick="freeGo();return false;" aria-disabled="true">✨ Envoyer ma question gratuite</a>
-<p style="font-size:12.5px;color:var(--mut)">1 gratuite / personne pour découvrir. Contenu généré par IA — Divertissement.</p>
+<p style="font-size:12.5px;color:var(--mut)">1 gratuite / personne — réponse par email, divertissement uniquement.</p>
 <details style="margin-top:10px"><summary style="cursor:pointer;color:var(--gold2);font-weight:700;font-size:13px">📜 Lire les CGV du sanctuaire</summary><div style="font-size:13px;color:#d6cdb2;line-height:1.8;text-align:left;margin-top:8px">
 <b style="color:var(--gold2)">1. Objet.</b> Guidances de divertissement (question mail, séance VR, PDF souvenir). Aucune prédiction garantie, aucune obligation de résultat.<br>
 <b style="color:var(--gold2)">2. Qui.</b> 18+ uniquement. Cocher = tu déclares avoir 18 ans ou plus.<br>
@@ -43,20 +47,17 @@
 <div id="thanks" style="display:none;margin-top:14px;border:1px solid var(--gold);border-radius:10px;padding:16px;background:rgba(212,175,55,.08)">
 <b style="color:var(--gold2)">🕯️ Offrande reçue, voyageur.</b>
 <p style="font-size:14px;color:#d6cdb2;line-height:1.7;margin:8px 0">Merci ! Ta question s'est envolée vers le sanctuaire.<br>Si ton appli mail ne s'est pas ouverte, <a href="#" id="copyLink" style="color:var(--gold2)">clique ici pour copier ton message</a> et envoie-le à <b>contact.isekaixr@gmail.com</b>.</p>
-<p style="font-size:14px;color:var(--gold2)">✨ Et pour aller plus loin : la vraie rencontre, c'est en VR à Tournai.</p>
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px">
-<a class="btn btn-pay" href="infos.html">Comprendre avant la VR →</a>
-<a class="btn btn-ghost" href="omikuji.html">🎰 Retour omikuji</a>
-</div>
 </div>
 </div>
 <div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px">
-<a class="btn btn-ghost" href="iwate2.html">← LA VOIX</a>
-<a class="btn btn-pay" href="infos.html">FAQ anti-friction →</a>
+<a class="btn btn-ghost" href="iwate.html">← ACTE I</a>
+<a class="btn btn-pay" href="iwate3.html">Découvrir qui elle fut →</a>
 </div>
+<p style="font-size:12.5px;color:var(--mut)">Tu peux écrire puis continuer — ou juste continuer, voyageur libre.</p>
 <div style="margin-top:12px;text-align:center" class="only-direct"><a class="btn btn-ghost" href="index.html">← Accueil</a></div>
+</div>
 <script>
-function gateGo(){var ok=document.getElementById('f_cgv').checked;var b=document.getElementById('freeBtn');b.classList.toggle('is-off',!ok);b.setAttribute('aria-disabled',ok?'false':'true');document.getElementById('gateHint').style.display=ok?'none':'block';hideErr();}
+function gateGo(){var ok=document.getElementById('f_cgv').checked;var b=document.getElementById('freeBtn');if(!b)return;b.classList.toggle('is-off',!ok);b.setAttribute('aria-disabled',ok?'false':'true');document.getElementById('gateHint').style.display=ok?'none':'block';hideErr();}
 function hideErr(){var e=document.getElementById('formErr');if(e){e.style.display='none';e.textContent='';}}
 function showErr(m){var e=document.getElementById('formErr');e.textContent=m;e.style.display='block';e.scrollIntoView({block:'nearest'});}
 function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);}
@@ -66,9 +67,8 @@ function freeGo(){if(!document.getElementById('f_cgv').checked){showErr('Coche l
 (function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
 gateGo();
 document.getElementById('copyLink').addEventListener('click',function(e){e.preventDefault();try{if(navigator.clipboard&&_lastTxt){navigator.clipboard.writeText(_lastTxt);this.textContent='copié ! colle-le dans ton mail ✨';}}catch(err){}});
-try{if(window.self!==window.top){var els=document.querySelectorAll('.only-direct');for(var i=0;i<els.length;i++){els[i].style.display='none';}}}catch(e2){}
+try{if(window.self!==window.top){var els=document.querySelectorAll('.only-direct');for(var i=0;i<els.length;i++){els[i].style.display='none';}}}catch(e){}
 </script>
 <script src="reveal.js"></script>
 </body>
 </html>
-

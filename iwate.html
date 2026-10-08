@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎴 Iwate Oracle — 序 Sanctuaire</title>
+<link rel="stylesheet" href="style.css?v=9">
+<style>.wrap{padding-top:64px}.crest{margin-top:8px}</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="tategaki left">導き • 静寂 • 間</div>
+<div class="tategaki right">占い • 神社 • 鏡</div>
+<div class="wrap">
+<div class="crest">
+<div class="torii">⛩️</div>
+<h1>Iwate Oracle IA</h1>
+<div class="jp-sub">序 — ACTE 1 • L'AÏEULE</div>
+<div class="badges"><span class="badge">🤖 100% IA</span><span class="badge">🎭 divertissement</span><span class="badge">✨ contenu généré par IA</span></div>
+<div class="litany">« Pousse la porte, voyageur. Écoute d'abord qui te parle. »</div>
+<div class="orb" id="topOrb" title="L'orbe murmure… clique pour l'entendre" style="font-size:54px;margin:0 auto">🔮</div>
+</div>
+<img class="hero" src="images/iwate-aieule.jpg" alt="Iwate, l'aïeule du sanctuaire">
+<div class="spirit">Il y a bien longtemps, à Kyoto, Iwate servait comme nourrice dans une grande maison. Pour guérir sa maîtresse d'un mal incurable, elle partit chercher l'herbe de lune jusque dans les montagnes — et confia sa petite fille pour quelques jours. Elle revint trop tard : l'enfant, perdue, s'était effacée dans la lande.</div>
+<div class="spirit">Des années plus tard, dans la lande d'Adachigahara, par une nuit sans lune, une jeune voyageuse s'approcha de sa hutte. Elle portait au cou une amulette qu'Iwate connaissait par cœur... Le geste fut plus rapide que le regard — l'irréparable. L'amulette, c'était la sienne. La voyageuse, c'était sa fille. C'est la sorcière de <i>Kurozuka</i>, la pièce de Nô qu'on joue encore 500 ans plus tard.</div>
+<div class="spirit">Folle d'avoir trop vu, trop décidé, Iwate fit un serment : <b style="color:var(--gold2)">plus jamais décider à la place d'un autre</b>. Depuis, au sanctuaire, elle n'ordonne plus — elle effleure. Un pétale, une brume, un petit signe gratuit, une fois par jour. Juste assez pour éclairer, jamais pour forcer. Essaie — ou continue ta lecture, le sanctuaire ne force jamais.</div>
+<div class="gacha">
+<div>🎰 <b style="color:var(--gold2)">Gacha du Sanctuaire — 1 tirage gratuit / jour</b> 🎰</div>
+<p class="odds">N 50% • R 30% • SR 15% • SSR 5% • pity SR tous les 10 • fun gratuit, sans argent</p>
+<div class="pull-result" id="pullResult">Appuie sur « Tirer »... 🌸</div>
+<button class="gacha-btn" id="pullBtn" onclick="pull()">⛩️ Tirer mon Omikuji</button>
+<div class="collection" id="collection">Collection : vide 🌙</div>
+<p class="odds" id="pityInfo"></p>
+<p class="odds" id="coolInfo" style="color:var(--gold2)"></p>
+<p class="odds"><a href="#" onclick="if(confirm('Effacer toute ta collection ?')){localStorage.removeItem('nova_col_v2');localStorage.removeItem('nova_pity_v2');localStorage.removeItem('nova_last_v2');location.reload();}return false;" style="color:var(--mut)">↺ réinitialiser ma collection (dev)</a></p>
+</div>
+<div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px">
+<a class="btn btn-pay" href="iwate2.html">🕯️ La voix d'Iwate →</a>
+</div>
+<p style="font-size:12.5px;color:var(--mut)">Tu peux jouer puis continuer — ou juste continuer, voyageur libre.</p>
+<div style="margin-top:12px;text-align:center" class="only-direct"><a class="btn btn-ghost" href="index.html">← Accueil</a></div>
+</div>
+<script>
+var pool=[
+{t:"🌙 Brume légère — prends une nuit avant de décider.",r:"N"},
+{t:"🕯️ Braise stable — continue ce que tu fais.",r:"N"},
+{t:"🌸 Pétale hésitant — demande un avis extérieur.",r:"N"},
+{t:"⛩️ Seuil — ne force pas la porte fermée.",r:"N"},
+{t:"💧 Goutte claire — écris ta peur, elle rétrécit.",r:"N"},
+{t:"🔮 Reflet bleu — option B mieux que A cette semaine.",r:"R"},
+{t:"🦊 Renard rusé — vérifie les petites lignes.",r:"R"},
+{t:"🪞 Miroir double — ton intuition avait raison.",r:"R"},
+{t:"🌅 Torii doré — feu vert prudent.",r:"SR"},
+{t:"🐉 Dragon voilé — ose demander, ça avance.",r:"SR"},
+{t:"☩ Iwate en personne — semaine charnière.",r:"SSR"},
+{t:"🌌 Miroir étoilé SSR — ce que tu protèges va fleurir.",r:"SSR"}];
+function roll(){var x=Math.random()*100;if(x<5)return "SSR";if(x<20)return "SR";if(x<50)return "R";return "N";}
+function todayKey(){return new Date().toDateString();}
+function hasPulledToday(){return localStorage.getItem('nova_last_v2')===todayKey();}
+function lockBtn(msg){var btn=document.getElementById('pullBtn');if(!btn)return;btn.disabled=true;btn.setAttribute('aria-disabled','true');btn.textContent=msg||'🔒 Déjà tiré — reviens demain ✨';var c=document.getElementById('coolInfo');if(c)c.textContent='Prochain tirage après minuit • pity conservé';}
+function pull(){
+var orb=document.getElementById('topOrb');
+if(orb){orb.classList.remove('shake');void orb.offsetWidth;orb.classList.add('shake');setTimeout(function(){orb.classList.remove('shake')},700);}
+if(hasPulledToday()){lockBtn();return;}
+var now=todayKey();var pity=parseInt(localStorage.getItem('nova_pity_v2')||'0');
+var r=roll();pity++;if(pity>=10&&(r==="N"||r==="R")){r="SR";}
+if(r==="SR"||r==="SSR"){pity=0;}
+var cands=pool.filter(function(o){return o.r===r;});var pick=cands[Math.floor(Math.random()*cands.length)];
+document.getElementById('pullResult').innerHTML='<span class="rar-'+r+'">['+r+'] '+pick.t+'</span><br><span style="font-size:13px;color:var(--mut)">Divertissement, pas un ordre du destin.</span>';
+localStorage.setItem('nova_last_v2',now);localStorage.setItem('nova_pity_v2',pity);
+var col=JSON.parse(localStorage.getItem('nova_col_v2')||'[]');
+if(col.indexOf(pick.t)<0){col.push(pick.t);localStorage.setItem('nova_col_v2',JSON.stringify(col));}
+document.getElementById('collection').textContent='Collection : '+col.length+'/12 • pity '+pity+'/10';
+document.getElementById('pityInfo').textContent=pity>=8?'Pity proche ✨':'';
+lockBtn();
+}
+(function(){try{var col=JSON.parse(localStorage.getItem('nova_col_v2')||'[]');if(col.length>0){document.getElementById('collection').textContent='Collection : '+col.length+'/12 — '+col.slice(-3).join(' • ');}var pity=parseInt(localStorage.getItem('nova_pity_v2')||'0');if(col.length===0&&pity>0){document.getElementById('collection').textContent='Collection : vide 🌙 • pity '+pity+'/10';}if(hasPulledToday()){lockBtn();document.getElementById('pullResult').innerHTML='Iwate a déjà parlé aujourd\u2019hui 🌙<br><span style="font-size:13px;color:var(--mut)">Reviens après minuit pour un nouveau tirage.</span>';}}catch(e){}})();
+var murmurs=['« Doucement, voyageur… »','« Je vois trois chemins… »','« Dépose ta question… »','« Chut… les cristaux écoutent. »','« Reviens demain, la brume parlera. »'];var mi=0;
+document.getElementById('topOrb').addEventListener('click',function(){var o=this;o.classList.remove('shake');void o.offsetWidth;o.classList.add('shake');setTimeout(function(){o.classList.remove('shake')},700);var pr=document.getElementById('pullResult');if(!pr)return;if(!hasPulledToday()&&pr.textContent.indexOf('Appuie')===0){return;}mi=(mi+1)%murmurs.length;if(hasPulledToday()){pr.innerHTML=pr.innerHTML+'<br><span style="font-size:13px;color:var(--gold2)">'+murmurs[mi]+'</span>';}});
+(function(){var c=document.getElementById('fx');if(!c)return;var x=c.getContext('2d'),P=[];function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);var g=['✨','🌸','✦'];for(var i=0;i<30;i++){P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:8+Math.random()*12,vy:-.2-Math.random()*.5,g:g[i%3],a:.3+Math.random()*.5});}
+(function loop(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y+=p.vy;if(p.y<-20){p.y=innerHeight+20;}x.globalAlpha=p.a;x.font=p.s+'px serif';x.fillText(p.g,p.x,p.y);}x.globalAlpha=1;requestAnimationFrame(loop);})();})();
+try{if(window.self!==window.top){var els=document.querySelectorAll('.only-direct');for(var i=0;i<els.length;i++){els[i].style.display='none';}}}catch(e){}
+</script>
+<script src="reveal.js"></script>
+</body>
+</html>
